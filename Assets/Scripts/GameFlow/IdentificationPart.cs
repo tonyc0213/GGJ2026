@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Identification;
 using PartsGen;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utils;
 
@@ -18,9 +21,15 @@ namespace GameFlow
 
         public List<RealCulpritSnippet> faceGenerators;
 
+        public GameObject answerUI;
+        public TextMeshProUGUI answerText;
+        public Button restartButton;
+
         private void Start()
         {
             GenerateSuspects();
+            restartButton.onClick.AddListener(Restart);
+            answerUI.SetActive(false);
         }
 
         void GenerateSuspects()
@@ -47,12 +56,18 @@ namespace GameFlow
         {
             if (suspectHash == FaceAndDrawings.singleton.suspectFaceHash[FaceAndDrawings.singleton.realCulpritIndex])
             {
-                Debug.Log("Correct Answer!");
+                answerText.SetText("Correct Answer!");
             }
             else
             {
-                Debug.Log("Wrong Answer");
+                answerText.SetText("Wrong Answer");
             }
+            answerUI.SetActive(true);
+        }
+
+        void Restart()
+        {
+            SceneManager.LoadScene("Scenes/Interrogation");
         }
     }
 }
