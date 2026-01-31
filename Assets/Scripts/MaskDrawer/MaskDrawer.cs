@@ -33,7 +33,7 @@ public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         size.x = (int)rt.rect.size.x;
         size.y = (int)rt.rect.size.y;
         colorMap = new Color[size.x * size.y];
-        generatedTexture = new Texture2D(size.x, size.y, TextureFormat.RGB24, false);
+        generatedTexture = new Texture2D(size.x, size.y, TextureFormat.RGBA32, false);
         generatedTexture.filterMode = FilterMode.Point;
     }
 
@@ -65,7 +65,7 @@ public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
 
     public Texture2D ExportTexture()
     {
-        var texture =  new Texture2D(size.x, size.y, TextureFormat.RGB24, false);
+        var texture =  new Texture2D(size.x, size.y, TextureFormat.RGBA32, false);
         texture.filterMode = FilterMode.Point;
         texture.SetPixels(generatedTexture.GetPixels());
         texture.Apply();
@@ -127,7 +127,7 @@ public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     {
         for (var i = 0; i < colorMap.Length; i++)
         {
-            colorMap[i] = Color.white;
+            colorMap[i] = resetColor;
         }
     }
 
