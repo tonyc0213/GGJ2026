@@ -14,6 +14,6 @@ namespace GameFlow
         
         public List<long> reappearingSuspects = new List<long>();
 
-        public int difficulty = 0;
+        public int difficultyIncrease = 0;
     }
 }

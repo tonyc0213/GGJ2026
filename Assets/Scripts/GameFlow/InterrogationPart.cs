@@ -17,7 +17,7 @@ namespace GameFlow
     public class InterrogationPart : MonoBehaviour
     {
         public DifficultySettingSO difficultySettings;
-        public int difficulty;
+        public int startingDifficulty;
 
         public float reappearingSuspectStayTime;
         
@@ -29,7 +29,7 @@ namespace GameFlow
         public float transitionOutTime;
 
         public PartsGenSystem faceGenerator;
-        [FormerlySerializedAs("maskDrawer")] public MaskSketchbook maskSketchbook;
+        public MaskSketchbook maskSketchbook;
         public Timer timer;
 
         public UnityEvent OnShowNewSuspect;
@@ -47,7 +47,8 @@ namespace GameFlow
 
         void Initialize()
         {
-            var difficultySetting = difficultySettings.GetItem(this.difficulty);
+            var difficulty = Math.Min(startingDifficulty + FaceAndDrawings.singleton.difficultyIncrease, difficultySettings.itemList.Count);
+            var difficultySetting = difficultySettings.GetItem(difficulty);
 
             suspectCount = difficultySetting.suspectCount;
             drawTime = difficultySetting.drawTime;
