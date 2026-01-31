@@ -692,6 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a49e9beb1f4c5cba58e4958a824224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultySettings: {fileID: 11400000, guid: ccc8975a57f656a44a055a1750c25387, type: 2}
+  snippetPositions: {fileID: 11400000, guid: f9b194ced2c2b834a8389fde2f09beb5, type: 2}
   suspectPrefab: {fileID: -2551625466846261784, guid: d49e8b8df75935446a41c225a90e0c6c, type: 3}
   layoutRoot: {fileID: 124532793}
   suspects: []

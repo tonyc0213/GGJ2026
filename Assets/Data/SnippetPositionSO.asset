@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e65ee36c7647b989ee39f82d913fdf, type: 3}
+  m_Name: SnippetPositionSO
+  m_EditorClassIdentifier: 
+  defaultItem:
+    key: 0
+    item:
+    - {x: 0, y: 0, z: 3.5}
+    - {x: -20, y: 220, z: 2}
+    - {x: 50, y: -350, z: 2}
+    - {x: 100, y: 100, z: 3}
+    - {x: -100, y: 150, z: 3}
+    - {x: -150, y: 50, z: 2}
+  itemList:
+  - key: 1
+    item:
+    - {x: 0, y: 0, z: 3.5}
+    - {x: -350, y: -350, z: 3}
+    - {x: -20, y: 220, z: 2}
+    - {x: -150, y: -400, z: 4}
+    - {x: 45, y: -530, z: 2}
+    - {x: 300, y: -200, z: 2}
+    - {x: 50, y: -350, z: 2}
+    - {x: 100, y: 100, z: 3}
+    - {x: -100, y: 150, z: 3}
+    - {x: 0, y: 150, z: 3.5}
+    - {x: -150, y: 50, z: 2}

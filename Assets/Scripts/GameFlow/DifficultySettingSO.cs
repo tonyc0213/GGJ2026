@@ -11,6 +11,7 @@ namespace GameFlow
         public float drawTime;
         public int reappearingSuspectCounts;
         public int irisColorCount;
+        public int snippetListId;
     }
     
     [CreateAssetMenu(menuName = "ScriptableObjects/DifficultySetting")]

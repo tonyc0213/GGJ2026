@@ -15,6 +15,8 @@ namespace GameFlow
 {
     public class IdentificationPart : MonoBehaviour
     {
+        public DifficultySettingSO difficultySettings;
+        public SnippetPositionSO snippetPositions;
         public IdentificationSuspect suspectPrefab;
 
         public RectTransform layoutRoot;
@@ -51,10 +53,21 @@ namespace GameFlow
             }
 
             List<Vector3> usedPositions = new List<Vector3>();
+            var difficultySetting = difficultySettings.GetItem(FaceAndDrawings.singleton.difficultyIncrease);
+            var snippetPositionsList = snippetPositions.GetItem(difficultySetting.snippetListId);
             foreach (var faceGenerator in faceGenerators)
             {
                 faceGenerator.face.DrawFace(FaceAndDrawings.singleton.suspectFaceHash[FaceAndDrawings.singleton.realCulpritIndex]);
-                faceGenerator.RandomizePosition(usedPositions);
+                
+                Vector3 position;
+                do
+                {
+                    position = snippetPositionsList[UnityEngine.Random.Range(0, snippetPositionsList.Count)];
+                } 
+                while (usedPositions.Contains(position));
+                usedPositions.Add(position);
+                
+                faceGenerator.SetPositionAndScale(position, position.z);
             }
         }
 
