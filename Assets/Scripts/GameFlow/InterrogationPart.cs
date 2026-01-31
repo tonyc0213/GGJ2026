@@ -33,7 +33,8 @@ namespace GameFlow
         public Timer timer;
 
         public UnityEvent OnShowNewSuspect;
-        public UnityEvent OnSSuspectLeave;
+        public UnityEvent OnNewSuspectLeave;
+        public UnityEvent OnReappearingSuspectLeave;
         private int currentIndex;
         
         public GameObject suspectMask;
@@ -161,13 +162,20 @@ namespace GameFlow
         void OnSuspectDone()
         {
             var faceHash = FaceAndDrawings.singleton.suspectFaceHash[currentIndex];
-            FaceAndDrawings.singleton.drawnFaces.TryAdd(faceHash, maskSketchbook.ExportTexture());
+            var reappearing = FaceAndDrawings.singleton.drawnFaces.TryAdd(faceHash, maskSketchbook.ExportTexture());
             
             SetSuspectMask(faceHash);
             maskSketchbook.Clear();
             currentIndex++;
-            
-            OnSSuspectLeave.Invoke();
+
+            if (reappearing)
+            {
+                OnReappearingSuspectLeave.Invoke();
+            }
+            else
+            {
+                OnNewSuspectLeave.Invoke();
+            }
             Delay(transitionOutTime,CheckNextSuspect);
         }
 
