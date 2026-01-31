@@ -16,66 +16,36 @@ MonoBehaviour:
     key: 0
     item:
       suspectCount: 3
-      drawTime: 15
+      drawTime: 10
       reappearingSuspectCounts: 0
   itemList:
   - key: 1
     item:
       suspectCount: 3
-      drawTime: 14
+      drawTime: 6
       reappearingSuspectCounts: 0
   - key: 2
     item:
-      suspectCount: 3
-      drawTime: 13
-      reappearingSuspectCounts: 0
+      suspectCount: 4
+      drawTime: 5
+      reappearingSuspectCounts: 1
   - key: 3
     item:
-      suspectCount: 4
-      drawTime: 12
-      reappearingSuspectCounts: 1
-  - key: 4
-    item:
-      suspectCount: 8
-      drawTime: 11
-      reappearingSuspectCounts: 1
-  - key: 4
-    item:
-      suspectCount: 8
-      drawTime: 10
-      reappearingSuspectCounts: 1
-  - key: 5
-    item:
-      suspectCount: 8
-      drawTime: 9
-      reappearingSuspectCounts: 2
-  - key: 7
-    item:
       suspectCount: 5
-      drawTime: 8
-      reappearingSuspectCounts: 2
-  - key: 8
-    item:
-      suspectCount: 5
-      drawTime: 7
-      reappearingSuspectCounts: 2
-  - key: 9
-    item:
-      suspectCount: 6
-      drawTime: 6
-      reappearingSuspectCounts: 3
-  - key: 10
-    item:
-      suspectCount: 6
-      drawTime: 5
-      reappearingSuspectCounts: 4
-  - key: 11
-    item:
-      suspectCount: 7
       drawTime: 4
-      reappearingSuspectCounts: 5
-  - key: 12
+      reappearingSuspectCounts: 1
+  - key: 4
     item:
       suspectCount: 8
       drawTime: 3
-      reappearingSuspectCounts: 6
+      reappearingSuspectCounts: 1
+  - key: 5
+    item:
+      suspectCount: 10
+      drawTime: 2
+      reappearingSuspectCounts: 2
+  - key: 6
+    item:
+      suspectCount: 12
+      drawTime: 1
+      reappearingSuspectCounts: 2
