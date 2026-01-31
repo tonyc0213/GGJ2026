@@ -228,7 +228,6 @@ namespace MaskDrawer
         
         void CheckPlaySound(Vector2 prevPos, Vector2 currentPos)
         {
-            Debug.Log($"{currentPos} _ {prevPos}");
             var magnitude = (currentPos - prevPos).magnitude;
             if (magnitude > playThreshold)
             {

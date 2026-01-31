@@ -34,10 +34,11 @@ namespace GameFlow
 
         void GenerateSuspects()
         {
-            var faces = FaceAndDrawings.singleton.drawnFaces.ToList();
-            faces.ShuffleList();
-            foreach (var (hash, face) in faces)
+            var faceHashes = FaceAndDrawings.singleton.suspectFaceHash;
+            faceHashes.ShuffleList();
+            foreach (var hash in faceHashes)
             {
+                var face = FaceAndDrawings.singleton.drawnFaces[hash];
                 var newSuspect = Instantiate(suspectPrefab, layoutRoot);
                 newSuspect.SetMask(hash,face);
                 newSuspect.SetCallback(OnClickSuspect);
@@ -56,6 +57,7 @@ namespace GameFlow
         {
             if (suspectHash == FaceAndDrawings.singleton.suspectFaceHash[FaceAndDrawings.singleton.realCulpritIndex])
             {
+                FaceAndDrawings.singleton.difficultyIncrease++;
                 answerText.SetText("Correct Answer!");
             }
             else
