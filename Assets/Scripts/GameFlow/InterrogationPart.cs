@@ -33,7 +33,8 @@ namespace GameFlow
         public Timer timer;
 
         public UnityEvent OnShowNewSuspect;
-        public UnityEvent OnSSuspectLeave;
+        public UnityEvent OnNewSuspectLeave;
+        public UnityEvent OnReappearingSuspectLeave;
         private int currentIndex;
         
         public GameObject suspectMask;
@@ -104,7 +105,6 @@ namespace GameFlow
             faceGenerator.DrawGeneratedFace(currentIndex);
             OnShowNewSuspect.Invoke();
             Delay(transitionInTime, StartDrawTimer);
-            //Delay(transitionInTime + 2, StartDeformFace);
         }
 
         void ShowReappearingSuspect()
@@ -130,27 +130,7 @@ namespace GameFlow
         {
             timer.StartTimer(drawTime);
         }
-
-        public float deformDuration;
-        private void StartDeformFace()
-        {
-            deformStart = deformDuration;
-            deformTime = deformDuration;
-        }
-
-        private float deformStart;
-        private float deformTime;
-        private void Update()
-        {
-            if (deformTime > 0)
-            {
-                var deformFactor = deformTime / deformStart;
-                faceGenerator.SetOpacity(deformFactor);
-
-                deformTime -= Time.deltaTime;
-            }
-        }
-
+        
         public void ForceSuspectDone()
         {
             if (timer.CurrentTime <= 0) return;
@@ -161,13 +141,20 @@ namespace GameFlow
         void OnSuspectDone()
         {
             var faceHash = FaceAndDrawings.singleton.suspectFaceHash[currentIndex];
-            FaceAndDrawings.singleton.drawnFaces.TryAdd(faceHash, maskSketchbook.ExportTexture());
+            var reappearing = FaceAndDrawings.singleton.drawnFaces.TryAdd(faceHash, maskSketchbook.ExportTexture());
             
             SetSuspectMask(faceHash);
             maskSketchbook.Clear();
             currentIndex++;
-            
-            OnSSuspectLeave.Invoke();
+
+            if (reappearing)
+            {
+                OnReappearingSuspectLeave.Invoke();
+            }
+            else
+            {
+                OnNewSuspectLeave.Invoke();
+            }
             Delay(transitionOutTime,CheckNextSuspect);
         }
 

@@ -236,7 +236,7 @@ namespace MaskDrawer
                     audioSource.Play();
                 }
                 
-                audioSource.pitch = 1 + (magnitude - playThreshold) / (maxPitchMagnitude - playThreshold) * maxPitchUp;
+                audioSource.pitch = 1 + Math.Min((magnitude - playThreshold) / (maxPitchMagnitude - playThreshold),1) * maxPitchUp;
             }
             else
             {
