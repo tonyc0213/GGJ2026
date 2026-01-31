@@ -24,3 +24,28 @@ MonoBehaviour:
       partName: 
       partPrefab: {fileID: 7822541886525536025, guid: 10ab17aa07eb8564181bb599d1ef8ca6, type: 3}
       partDescription: 
+  - key: 1
+    item:
+      partName: 
+      partPrefab: {fileID: 7822541886525536025, guid: b19a82c02269d424db06428d2cabea28, type: 3}
+      partDescription: 
+  - key: 2
+    item:
+      partName: 
+      partPrefab: {fileID: 7822541886525536025, guid: c0fcb595ae17ee547a5a4507083e226a, type: 3}
+      partDescription: 
+  - key: 3
+    item:
+      partName: 
+      partPrefab: {fileID: 7822541886525536025, guid: 251b9b82777e9eb4dbc82459c8032f08, type: 3}
+      partDescription: 
+  - key: 4
+    item:
+      partName: 
+      partPrefab: {fileID: 7822541886525536025, guid: dc8e3f7a1e788544ebf051ff7c8e203b, type: 3}
+      partDescription: 
+  - key: 5
+    item:
+      partName: 
+      partPrefab: {fileID: 7822541886525536025, guid: 94a97e482bd6c484cbf23c620f627fc0, type: 3}
+      partDescription: 

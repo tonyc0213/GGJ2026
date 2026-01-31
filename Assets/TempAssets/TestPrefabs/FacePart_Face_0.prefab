@@ -11,10 +11,10 @@ PrefabInstance:
     - target: {fileID: 3768776930768028887, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f3f861b41a01b1c4396681f4c42d22df, type: 3}
+      objectReference: {fileID: 21300000, guid: e3371406554602145aa1e854f05b3d90, type: 3}
     - target: {fileID: 5714803341776936768, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
       propertyPath: m_Name
-      value: FacePart_Eyebrows_0 1
+      value: FacePart_Face_0
       objectReference: {fileID: 0}
     - target: {fileID: 7813683454625142223, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
       propertyPath: m_Pivot.x
