@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a4a4f7731f7e2a042955d158c9562ab3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd98451440cf6a146b21fa654db8b608, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -87,10 +87,10 @@ PrefabInstance:
     - target: {fileID: 3768776930768028887, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e63dd117ebf11d0478cab7ba2acac29e, type: 3}
+      objectReference: {fileID: 21300000, guid: bcb69e0cd1f53344b96c0d18d15d8660, type: 3}
     - target: {fileID: 5714803341776936768, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
       propertyPath: m_Name
-      value: FacePart_Eyes_0
+      value: FacePart_Eyes_1
       objectReference: {fileID: 0}
     - target: {fileID: 7813683454625142223, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
       propertyPath: m_Pivot.x
