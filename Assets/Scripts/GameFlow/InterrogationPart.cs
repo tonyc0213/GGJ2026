@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MaskDrawer;
 using PartsGen;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,7 +19,7 @@ namespace GameFlow
         public float transitionOutTime;
 
         public PartsGenSystem faceGenerator;
-        public MaskDrawer maskDrawer;
+        [FormerlySerializedAs("maskDrawer")] public MaskSketchbook maskSketchbook;
         public Timer timer;
 
         public UnityEvent OnShowNewSuspect;
@@ -37,7 +38,7 @@ namespace GameFlow
             FaceAndDrawings.singleton.suspectFaceHash = faceGenerator.GenerateFaces(suspectCount);
             FaceAndDrawings.singleton.realCulpritIndex = Random.Range(0, FaceAndDrawings.singleton.suspectFaceHash.Count);
             FaceAndDrawings.singleton.drawnFaces.Clear(); 
-            maskDrawer.Clear();
+            maskSketchbook.Clear();
 
             timer.OnTimesUp += OnSuspectDone;
         }
@@ -64,8 +65,8 @@ namespace GameFlow
 
         void OnSuspectDone()
         {
-            FaceAndDrawings.singleton.drawnFaces.Add(FaceAndDrawings.singleton.suspectFaceHash[currentIndex], maskDrawer.ExportTexture());
-            maskDrawer.Clear();
+            FaceAndDrawings.singleton.drawnFaces.Add(FaceAndDrawings.singleton.suspectFaceHash[currentIndex], maskSketchbook.ExportTexture());
+            maskSketchbook.Clear();
             currentIndex++;
             
             OnSSuspectLeave.Invoke();

@@ -1,14 +1,16 @@
+using MaskDrawer;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Utils
 {
     public class SaveLoadTest : MonoBehaviour
     {
-        public MaskDrawer maskDrawer;
+        [FormerlySerializedAs("maskDrawer")] public MaskSketchbook maskSketchbook;
 
         public void SaveTexture()
         {
-            CodeUtils.SaveTexture2D(maskDrawer.generatedTexture,"test");
+            CodeUtils.SaveTexture2D(maskSketchbook.generatedTexture,"test");
         }
 
         public void LoadTexture()
@@ -16,7 +18,7 @@ namespace Utils
             var texture = CodeUtils.LoadTexture2D("test");
             if (texture != null)
             {
-                maskDrawer.SetTexture(texture);
+                maskSketchbook.SetTexture(texture);
             }
             Destroy(texture);
         }
