@@ -562,10 +562,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "You are the best detective in history. \r\nYou have solved countless cases
-    and \nsent many criminals to prison...\r\nbut you haveonly one flaw..... \nyou
-    can't remember faces very well\r\nSo please carefully remember \nevery feature
-    of each criminal,\r\nand in the end, \npoint out the real culprit!\r\nRemember:There
-    is only one truth!\n"
+    and \nsent many criminals to prison\r\nbut you have only one flaw...\nyou can't
+    remember faces very well\r\nSo please carefully remember \nevery feature of each
+    criminal\r\nand in the end\npoint out the real culprit!!\r\nRemember:There is
+    only one truth!!!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e65aaabb2409de144a45a0f23dfd57e1, type: 2}
   m_sharedMaterial: {fileID: 8041778255750009052, guid: e65aaabb2409de144a45a0f23dfd57e1, type: 2}
@@ -848,7 +848,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4F60\u4FC2\u53F2\u4E0A\u6700\u597D\u65E2\u5075\u63A2\uFF0C\n\u4F60\u5075\u7834\u7121\u6578\u65E2\u6848\u4EF6\uFF0C\r\n\u5C07\u597D\u591A\u72AF\u4EBA\u9001\u5165\u53BB\u76E3\u7344....\r\n\u53EA\u4FC2..\u4F60\u8A18\u6027\u51FA\u5947\u5730\u5DEE!\r\n\u6240\u4EE5\u8ACB\u4F60\u4ED4\u7D30\u8A18\u4F4E\u6BCF\u4E00\u500B\u72AF\u4EBA\u65E2\u7279\u5FB5\n\u6700\u5F8C\u5C31\u5C07\u72AF\u4EBA\u6307\u8B49\u51FA\u9ECE!\r\n\u8A18\u4F4F!\u771F\u76F8\u6C38\u9060\u53EA\u6709\u4E00\u500B!"
+  m_Text: "\u4F60\u4FC2\u53F2\u4E0A\u6700\u597D\u65E2\u5075\u63A2\uFF0C\n\u4F60\u5075\u7834\u7121\u6578\u65E2\u6848\u4EF6\uFF0C\n\u5C07\u7121\u6578\u72AF\u4EBA\u9001\u5DE6\u5165\u53BB\u76E3\u7344\n\u53EA\u4FC2..\u4F60\u8A18\u6027\u51FA\u5947\u5730\u5DEE!\n\u6240\u4EE5\u8ACB\u4F60\u4ED4\u7D30\u8A18\u4F4E\u6BCF\u4E00\u500B\u72AF\u4EBA\u65E2\u7279\u5FB5\n\u6700\u5F8C\u5C31\u5C07\u72AF\u4EBA\u6307\u8B49\u51FA\u9ECE!!\n\u8A18\u4F4F!\u771F\u76F8\u6C38\u9060\u53EA\u6709\u4E00\u500B!!!"
 --- !u!222 &1258707146
 CanvasRenderer:
   m_ObjectHideFlags: 0
