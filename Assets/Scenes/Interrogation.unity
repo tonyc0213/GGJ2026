@@ -1939,6 +1939,10 @@ PrefabInstance:
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9089636934659432277, guid: 7cc79430446ec1143bd7c1badb606fa3, type: 3}
+      propertyPath: maxPitchUp
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089636934659432277, guid: 7cc79430446ec1143bd7c1badb606fa3, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 748495857}
