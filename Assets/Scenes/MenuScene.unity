@@ -589,7 +589,7 @@ Animator:
   m_GameObject: {fileID: 269869250}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a45e27c23b131849b4665a3172da7f0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 39cb22b9bc62fed4e93a47379f212306, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2269,7 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486baba20636e044e87a0f513a8fcdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartGameScene: Interrogation
+  StartGameScene: IntroScene
   languageId: 1
   engStartBtn: {fileID: 1052089093}
   canStartBtn: {fileID: 209936677}
