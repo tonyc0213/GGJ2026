@@ -57,6 +57,7 @@ namespace GameFlow
         {
             if (suspectHash == FaceAndDrawings.singleton.suspectFaceHash[FaceAndDrawings.singleton.realCulpritIndex])
             {
+                FaceAndDrawings.singleton.difficultyIncrease++;
                 answerText.SetText("Correct Answer!");
             }
             else
