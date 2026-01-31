@@ -28,6 +28,7 @@ namespace GameFlow
         public GameObject answerUI;
         public TextMeshProUGUI answerText;
         public Button restartButton;
+        public Button backToMainMenuButton;
 
         public UnityEvent OnCorrectAnswer;
         public UnityEvent OnIncorrectAnswer;
@@ -36,6 +37,7 @@ namespace GameFlow
         {
             GenerateSuspects();
             restartButton.onClick.AddListener(Restart);
+            backToMainMenuButton.onClick.AddListener(GotoMainMenu);
             answerUI.SetActive(false);
         }
 
@@ -95,6 +97,11 @@ namespace GameFlow
         void Restart()
         {
             SceneManager.LoadScene("Scenes/Interrogation");
+        }
+
+        void GotoMainMenu()
+        {
+            SceneManager.LoadScene("Scenes/MenuScene");
         }
     }
 }
