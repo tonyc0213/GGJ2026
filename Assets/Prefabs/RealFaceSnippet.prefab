@@ -105,12 +105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   face: {fileID: 8652921444383748307}
-  positions:
-  - {x: 0, y: 0}
-  - {x: 20, y: -150}
-  - {x: 120, y: 120}
-  - {x: -30, y: -80}
-  - {x: -150, y: 35}
+  positionsAndScale:
+  - {x: 0, y: 0, z: 3.5}
+  - {x: -350, y: -350, z: 3}
+  - {x: -20, y: 220, z: 2}
+  - {x: -150, y: -400, z: 4}
+  - {x: 45, y: -530, z: 2}
+  - {x: 300, y: -200, z: 2}
+  - {x: 50, y: -350, z: 2}
+  - {x: 100, y: 100, z: 3}
+  - {x: -100, y: 150, z: 3}
+  - {x: 0, y: 150, z: 3.5}
+  - {x: -150, y: 50, z: 2}
 --- !u!1001 &5259903129673623994
 PrefabInstance:
   m_ObjectHideFlags: 0

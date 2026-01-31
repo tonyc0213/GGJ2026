@@ -50,7 +50,7 @@ namespace GameFlow
                 suspects.Add(newSuspect);
             }
 
-            List<Vector2> usedPositions = new List<Vector2>();
+            List<Vector3> usedPositions = new List<Vector3>();
             foreach (var faceGenerator in faceGenerators)
             {
                 faceGenerator.face.DrawFace(FaceAndDrawings.singleton.suspectFaceHash[FaceAndDrawings.singleton.realCulpritIndex]);

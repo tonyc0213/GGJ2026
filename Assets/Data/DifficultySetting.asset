@@ -18,34 +18,41 @@ MonoBehaviour:
       suspectCount: 3
       drawTime: 10
       reappearingSuspectCounts: 0
+      irisColorCount: 2
   itemList:
   - key: 1
     item:
       suspectCount: 3
       drawTime: 6
       reappearingSuspectCounts: 0
+      irisColorCount: 2
   - key: 2
     item:
       suspectCount: 4
       drawTime: 5
       reappearingSuspectCounts: 1
+      irisColorCount: 2
   - key: 3
     item:
       suspectCount: 5
       drawTime: 4
       reappearingSuspectCounts: 1
+      irisColorCount: 2
   - key: 4
     item:
       suspectCount: 8
       drawTime: 3
       reappearingSuspectCounts: 1
+      irisColorCount: 2
   - key: 5
     item:
       suspectCount: 10
       drawTime: 2
       reappearingSuspectCounts: 2
+      irisColorCount: 2
   - key: 6
     item:
       suspectCount: 12
       drawTime: 1
       reappearingSuspectCounts: 2
+      irisColorCount: 2
