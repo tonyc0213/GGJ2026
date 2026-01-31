@@ -15,8 +15,8 @@ namespace PartsGen
 
     public enum PartsType
     {
-        FaceShapes = 1,
-        Ears,
+        Ears = 1,
+        FaceShapes,
         Nose,
         Eyes,
         Mouth,

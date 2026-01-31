@@ -27,22 +27,19 @@ public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     {
         canvas = GetComponentInParent<Canvas>();
         rawImage = GetComponent<RawImage>();
+        
+        rt = transform as RectTransform;
+        Assert.IsNotNull(rt, "Missing RectTransform");
+        size.x = (int)rt.rect.size.x;
+        size.y = (int)rt.rect.size.y;
+        colorMap = new Color[size.x * size.y];
+        generatedTexture = new Texture2D(size.x, size.y, TextureFormat.RGB24, false);
+        generatedTexture.filterMode = FilterMode.Point;
     }
 
     private void Start()
     {
-        rt = transform as RectTransform;
-    
-        Assert.IsNotNull(rt, "Missing RectTransform");
-        size.x = (int)rt.rect.size.x;
-        size.y = (int)rt.rect.size.y;
-
-        generatedTexture = new Texture2D(size.x, size.y, TextureFormat.RGB24, false);
-        generatedTexture.filterMode = FilterMode.Point;
-    
         rawImage.texture = generatedTexture;
-    
-        colorMap = new Color[size.x * size.y];
         ResetColorMap();
     
         generatedTexture.SetPixels(colorMap);
@@ -66,11 +63,19 @@ public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         brushColor = color;
     }
 
+    public Texture2D ExportTexture()
+    {
+        var texture =  new Texture2D(size.x, size.y, TextureFormat.RGB24, false);
+        texture.filterMode = FilterMode.Point;
+        texture.SetPixels(generatedTexture.GetPixels());
+        texture.Apply();
+        return texture;
+    }
+
     public void OnDraw(Vector2 position, bool erase)
     {
         var corner = (Vector2)rt.position;
         var pointerPosition = position;
-        Debug.Log($"{pointerPosition} {corner}");
         var scale = canvas.transform.lossyScale;
         var v = (pointerPosition - corner);
         var localPos = new Vector2(v.x / scale.x, v.y / scale.y);

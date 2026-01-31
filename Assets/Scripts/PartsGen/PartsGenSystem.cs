@@ -28,25 +28,51 @@ namespace PartsGen
         public List<PartsInfo> partsInfos;
         private Dictionary<PartsType, PartsIndex> partsInfoDict;
         
-        private Dictionary<PartsType, int> drawnIDs = new Dictionary<PartsType, int>();
+        private Dictionary<PartsType, int> generatedIDs = new Dictionary<PartsType, int>();
         private int irisColorID;
         private Dictionary<PartsType, GameObject> generatedParts = new Dictionary<PartsType, GameObject> ();
 
-        void Start()
+        public List<long> generatedFaces = new List<long>();
+
+        void Awake()
         {
             partsInfoDict = partsInfos.ToDictionary(x => x.partsType, x => x.partsIndex);
         }
 
-        public void DrawAllSixCategories()
+        public List<long> GenerateFaces(int count)
         {
-            ClearAll();
-
-            for (int i = 1; i <= 7; i++)
+            generatedFaces.Clear();
+            for (int i = 0; i < count; i++)
             {
-                RandomizePart((PartsType)i);
-                irisColorID = IrisColorTable.itemList[Random.Range(0, IrisColorTable.itemList.Count)].key;
+                var rndIndex = Random.Range(0, IrisColorTable.itemList.Count);
+                irisColorID = IrisColorTable.itemList[rndIndex].key;
+                for (int i1 = 1; i1 <= 7; i1++)
+                {
+                    RandomizePart((PartsType)i1);
+                }
+                if(generatedFaces.Contains(GetFaceHashCode()))
+                {
+                    // do again if duplicated faces
+                    i--; 
+                }else
+                {
+                    generatedFaces.Add(GetFaceHashCode());
+                }
             }
-            DrawAllParts();
+
+            return generatedFaces;
+        }
+        
+        long GetFaceHashCode()
+        {
+            long hash = 0;
+            hash += irisColorID;
+            foreach (var (partsType,id) in generatedIDs)
+            {
+                hash += (long)Mathf.Pow(100, (int)partsType) * id;
+            }
+            
+            return hash;
         }
 
         private void RandomizePart(PartsType partType)
@@ -54,40 +80,39 @@ namespace PartsGen
             var categoryCards = partsInfoDict[partType].itemList;
 
             int randomIndex = Random.Range(0, categoryCards.Count);
-            drawnIDs[partType] = categoryCards[randomIndex].key;
+            generatedIDs[partType] = categoryCards[randomIndex].key;
         }
 
-        void DrawAllParts()
+        public void DrawGeneratedFace(int index)
         {
-            foreach (var (partsType,id) in drawnIDs.ToList().OrderBy(x => x.Key))
-            {
-                var generatedPart = Instantiate(partsInfoDict[partsType].GetItem(id).partPrefab, transform);
-                generatedPart.transform.SetAsLastSibling();
-                generatedParts[partsType] =  generatedPart;
+            DrawFace(generatedFaces[index]);
+        }
 
-                if (partsType == PartsType.Eyes)
+        public void DrawFace(long hash)
+        {
+            var irisColor = (int)(hash % 100);
+            hash /= 100;
+
+            for (int partsType = 1; partsType <= 7; partsType++)
+            {
+                var id = (int)(hash % 100);
+                hash /= 100;
+                
+                var generatedPart = Instantiate(partsInfoDict[(PartsType)partsType].GetItem(id).partPrefab, transform);
+                generatedPart.transform.SetAsLastSibling();
+                generatedParts[(PartsType)partsType] =  generatedPart;
+
+                if ((PartsType)partsType == PartsType.Eyes)
                 {
                     var eyePart = generatedPart.GetComponent<EyePart>();
-                    eyePart.SetIrisColor(IrisColorTable.GetItem(irisColorID));
+                    eyePart.SetIrisColor(IrisColorTable.GetItem(irisColor));
                 }
             }
-        }
-
-        public long GetFaceHashCode()
-        {
-            long hash = 0;
-            hash += irisColorID;
-            foreach (var (partsType,id) in drawnIDs)
-            {
-                hash += (long)Mathf.Pow(100, (int)partsType) * id;
-            }
-            
-            return hash;
         }
         
         public void ClearAll()
         {
-            drawnIDs.Clear();
+            generatedIDs.Clear();
             foreach (var (partsType, generatedPart) in generatedParts)
             {
                 Destroy(generatedPart);
