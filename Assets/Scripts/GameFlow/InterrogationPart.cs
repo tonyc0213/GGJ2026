@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using PartsGen;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace GameFlow
 {
@@ -13,11 +14,8 @@ namespace GameFlow
 
         public PartsGenSystem faceGenerator;
         public MaskDrawer maskDrawer;
-        private List<long> suspectFaceHash;
 
         private int currentIndex;
-
-        public Dictionary<long, Texture2D> drawnFaces = new Dictionary<long, Texture2D>();
         
         private void Start()
         {
@@ -41,7 +39,8 @@ namespace GameFlow
         void Initialize()
         {
             currentIndex = 0;
-            suspectFaceHash = faceGenerator.GenerateFaces(suspectCount);
+            FaceAndDrawings.singleton.suspectFaceHash = faceGenerator.GenerateFaces(suspectCount);
+            FaceAndDrawings.singleton.realCulpritIndex = Random.Range(0, FaceAndDrawings.singleton.suspectFaceHash.Count);
             maskDrawer.Clear();
         }
 
@@ -67,7 +66,7 @@ namespace GameFlow
 
         void OnSuspectDone()
         {
-            drawnFaces.Add(suspectFaceHash[currentIndex], maskDrawer.ExportTexture());
+            FaceAndDrawings.singleton.drawnFaces.Add(FaceAndDrawings.singleton.suspectFaceHash[currentIndex], maskDrawer.ExportTexture());
             currentIndex++;
 
             if (currentIndex == suspectCount)
