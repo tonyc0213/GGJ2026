@@ -5,6 +5,7 @@ using Identification;
 using PartsGen;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -20,10 +21,14 @@ namespace GameFlow
         public List<IdentificationSuspect> suspects = new List<IdentificationSuspect>();
 
         public List<RealCulpritSnippet> faceGenerators;
+        public List<PartsGenSystem> answerUIFaces;
 
         public GameObject answerUI;
         public TextMeshProUGUI answerText;
         public Button restartButton;
+
+        public UnityEvent OnCorrectAnswer;
+        public UnityEvent OnIncorrectAnswer;
 
         private void Start()
         {
@@ -55,14 +60,21 @@ namespace GameFlow
 
         void OnClickSuspect(long suspectHash)
         {
+            foreach (var partsGenSystem in answerUIFaces)
+            {
+                partsGenSystem.DrawFace(suspectHash);
+            }
+            
             if (suspectHash == FaceAndDrawings.singleton.suspectFaceHash[FaceAndDrawings.singleton.realCulpritIndex])
             {
                 FaceAndDrawings.singleton.difficultyIncrease++;
                 answerText.SetText("Correct Answer!");
+                OnCorrectAnswer.Invoke();
             }
             else
             {
                 answerText.SetText("Wrong Answer");
+                OnIncorrectAnswer.Invoke();
             }
             answerUI.SetActive(true);
         }
