@@ -506,7 +506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &209936678
 RectTransform:
   m_ObjectHideFlags: 0
@@ -944,7 +944,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d2d3042f75d756843827bb0eb4cd4dcc, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -956,7 +956,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u958B\u59CB\u904A\u6232"
+  m_Text: Start Game
 --- !u!222 &338465752
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2097,12 +2097,12 @@ GameObject:
   - component: {fileID: 1052089096}
   - component: {fileID: 1052089095}
   m_Layer: 0
-  m_Name: StartGameBtnCan
+  m_Name: StartGameBtnEng
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1052089094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2345,16 +2345,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartGameScene: DrawingTest
   languageId: 1
-  engOptionMenu: {fileID: 0}
-  canOptionMenu: {fileID: 0}
-  engStartBtn: {fileID: 16838134}
-  engOptionBtn: {fileID: 0}
-  canStartBtn: {fileID: 1052089093}
-  canOptionBtn: {fileID: 0}
+  engStartBtn: {fileID: 1052089093}
+  canStartBtn: {fileID: 209936677}
   MainUi: {fileID: 1484445007}
   mixer: {fileID: 24100000, guid: 71c56576efa01d64595ca9d3e790332d, type: 2}
   bgmSound: {fileID: 1145150145}
   sfxSound: {fileID: 11024941}
+  enTitle: {fileID: 269869250}
+  cnTitle: {fileID: 1532021906}
+  bgmSoundText: {fileID: 393607336}
+  sfxSoundText: {fileID: 1087475644}
+  enFont: {fileID: 12800000, guid: d2d3042f75d756843827bb0eb4cd4dcc, type: 3}
+  cnFont: {fileID: 12800000, guid: 037357acf2333264b8ca624aa91c4237, type: 3}
   sfx: {fileID: 1142257146}
   bgm: {fileID: 482454488}
 --- !u!82 &1142257146
@@ -2739,7 +2741,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1283250671}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1142257145}
+        m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
+        m_MethodName: ChangeToEng
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1283250671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3166,7 +3180,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1513119444}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1142257145}
+        m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
+        m_MethodName: ChangeToCan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1513119444
 MonoBehaviour:
   m_ObjectHideFlags: 0

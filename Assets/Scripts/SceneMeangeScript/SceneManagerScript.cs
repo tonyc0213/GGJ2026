@@ -13,14 +13,8 @@ public class SceneManagerScript : MonoBehaviour
 
     public int languageId =1; //1 =eng 2=can
 
-    public GameObject engOptionMenu;
-    public GameObject canOptionMenu;
-
     public GameObject engStartBtn;
-    public GameObject engOptionBtn;
-
     public GameObject canStartBtn;
-    public GameObject canOptionBtn;
 
     public GameObject MainUi;
 
@@ -28,6 +22,14 @@ public class SceneManagerScript : MonoBehaviour
     public Toggle bgmSound;
     public Toggle sfxSound;
 
+    public GameObject enTitle;
+    public GameObject cnTitle;
+
+    public Text bgmSoundText;
+    public Text sfxSoundText;
+
+    public Font enFont;
+    public Font cnFont;
 
     public AudioSource sfx;
     public GameObject bgm;
@@ -55,52 +57,35 @@ public class SceneManagerScript : MonoBehaviour
         SceneManager.LoadScene(StartGameScene);
     }
 
-    public void OpenMenu()
-    {
-        MainUi.SetActive(true);
 
-
-        if (languageId ==1)
-        {
-            engOptionMenu.SetActive(true);
-        }
-        if (languageId == 1)
-        {
-            canOptionMenu.SetActive(true);
-        }
-    }
-
-    public void CloseMenu()
-    {
-        MainUi.SetActive(false);
-
-        if (languageId == 1)
-        {
-            engOptionMenu.SetActive(false);
-        }
-        if (languageId == 1)
-        {
-            canOptionMenu.SetActive(false);
-        }
-    }
 
 
     public void ChangeToEng()
     {
         languageId = 1;
-        engOptionBtn.SetActive(true);
         engStartBtn.SetActive(true);
-        canOptionBtn.SetActive(false);
         canStartBtn.SetActive(false);
+        enTitle.SetActive(true);
+        cnTitle.SetActive(false);
+        bgmSoundText.font = enFont;
+        sfxSoundText.font = enFont;
+        bgmSoundText.text = ("Music");
+        sfxSoundText.text = ("SFX");
+
     }
 
     public void ChangeToCan()
     {
         languageId = 2;
-        engOptionBtn.SetActive(true);
-        engStartBtn.SetActive(true);
-        canOptionBtn.SetActive(false);
-        canStartBtn.SetActive(false);
+        engStartBtn.SetActive(false);
+        canStartBtn.SetActive(true);
+        enTitle.SetActive(false);
+        cnTitle.SetActive(true);
+        bgmSoundText.font = cnFont;
+        sfxSoundText.font = cnFont;
+        bgmSoundText.text = ("音樂");
+        sfxSoundText.text = ("音效");
+
     }
 
     private void ToggleBGM(bool isOn)
