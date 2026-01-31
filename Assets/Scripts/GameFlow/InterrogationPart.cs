@@ -33,6 +33,8 @@ namespace GameFlow
         public Timer timer;
 
         public UnityEvent OnShowNewSuspect;
+        public UnityEvent OnShowReappearingSuspect;
+        public UnityEvent OnStartDrawingSuspect;
         public UnityEvent OnNewSuspectLeave;
         public UnityEvent OnReappearingSuspectLeave;
         private int currentIndex;
@@ -82,7 +84,8 @@ namespace GameFlow
             FaceAndDrawings.singleton.realCulpritIndex = Random.Range(0, FaceAndDrawings.singleton.suspectFaceHash.Count);
             
             maskSketchbook.Clear();
-
+            maskSketchbook.SetAllowDrawing(false);
+            
             timer.OnTimesUp += OnSuspectDone;
         }
 
@@ -100,7 +103,6 @@ namespace GameFlow
 
         void ShowNewSuspect()
         {
-            maskSketchbook.gameObject.SetActive(true);
             suspectMask.SetActive(false);
             faceGenerator.DrawGeneratedFace(currentIndex);
             OnShowNewSuspect.Invoke();
@@ -115,8 +117,7 @@ namespace GameFlow
             SetSuspectMask(faceHash);
 
             maskSketchbook.Clear();
-            maskSketchbook.gameObject.SetActive(false);
-            
+            OnShowReappearingSuspect.Invoke();
             timer.StartTimer(reappearingSuspectStayTime);
         }
 
@@ -128,6 +129,8 @@ namespace GameFlow
 
         private void StartDrawTimer()
         {
+            OnStartDrawingSuspect.Invoke();
+            maskSketchbook.SetAllowDrawing(true);
             timer.StartTimer(drawTime);
         }
         
@@ -145,6 +148,7 @@ namespace GameFlow
             
             SetSuspectMask(faceHash);
             maskSketchbook.Clear();
+            maskSketchbook.SetAllowDrawing(false);
             currentIndex++;
 
             if (reappearing)

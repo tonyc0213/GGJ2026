@@ -66,6 +66,11 @@ namespace MaskDrawer
             brushColor = color;
         }
 
+        public void SetAllowDrawing(bool canDraw)
+        {
+            this.canDraw = canDraw;
+        }
+
         public Texture2D ExportTexture()
         {
             var texture =  new Texture2D(size.x, size.y, TextureFormat.RGBA32, false);
@@ -75,8 +80,15 @@ namespace MaskDrawer
             return texture;
         }
 
+        private bool canDraw;
+
         public void OnDraw(Vector2 position, bool erase)
         {
+            if (!canDraw)
+            {
+                return;
+            }
+            
             var corner = (Vector2)rt.position;
             var pointerPosition = position;
             var scale = canvas.transform.lossyScale;
@@ -169,8 +181,6 @@ namespace MaskDrawer
                     OnDraw(point,erase);
                 }
             }
-
-            CheckPlaySound(prevPosition, pointerPosition);
             
             prevPosition = pointerPosition;
         }
@@ -192,7 +202,7 @@ namespace MaskDrawer
 
         private void FixedUpdate()
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && canDraw)
             {
                 CheckPlaySound(prevSoundPos, prevPosition);
             }
