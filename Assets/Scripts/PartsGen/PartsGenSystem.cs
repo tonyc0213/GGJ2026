@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GameFlow;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -50,7 +51,7 @@ namespace PartsGen
                 {
                     RandomizePart((PartsType)i1);
                 }
-                if(generatedFaces.Contains(GetFaceHashCode()))
+                if(FaceAndDrawings.singleton.drawnFaces.ContainsKey(GetFaceHashCode()))
                 {
                     // do again if duplicated faces
                     i--; 
@@ -113,6 +114,30 @@ namespace PartsGen
             }
         }
         
+        public void SetOpacity(float opacity)
+        {
+            foreach (var (partsType,part) in generatedParts)
+            {
+                if (partsType == PartsType.FaceShapes || partsType == PartsType.Hair)
+                {
+                    continue;
+                }
+
+                var image = part.GetComponent<Image>();
+                var color = image.color;
+                color.a = opacity;
+                image.color = color;
+
+                if (partsType == PartsType.Eyes)
+                {
+                    var eyePart = part.GetComponent<EyePart>();
+                    var color1 = eyePart.Iris.color;
+                    color1.a = opacity;
+                    eyePart.Iris.color = color1;
+                }
+            }
+        }
+
         public void ClearFace()
         {
             foreach (var (partsType, generatedPart) in generatedParts)
