@@ -215,14 +215,17 @@ namespace MaskDrawer
             cursorRT.sizeDelta = new Vector2(brushSize*2, brushSize*2);
         }
 
+        public Texture2D cursorTexture;
         public void OnPointerEnter(PointerEventData eventData)
         {
             UpdateBrushSize();
+            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
             cursorIndicator.gameObject.SetActive(true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             cursorIndicator.gameObject.SetActive(false);
         }
 

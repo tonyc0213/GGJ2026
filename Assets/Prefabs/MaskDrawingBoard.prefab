@@ -246,6 +246,7 @@ MonoBehaviour:
   resetColor: {r: 1, g: 1, b: 1, a: 0}
   cursorIndicator: {fileID: 5056687510707731923}
   audioSource: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: 46269815a47988c4db0056fbba82d5c4, type: 3}
   playThreshold: 0
   maxPitchMagnitude: 0
   maxPitchUp: 0
