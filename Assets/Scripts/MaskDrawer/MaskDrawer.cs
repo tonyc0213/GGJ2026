@@ -1,24 +1,31 @@
+using System;
+using PartsGen;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler
+public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerEnterHandler,IPointerExitHandler,IPointerMoveHandler
 {
     public Texture2D generatedTexture;
+    public ColorTable colorTable;
+
+    private Canvas canvas;
     private RawImage rawImage;
     private RectTransform rt;
     private Vector2Int size;
-
     private Color[] colorMap;
 
     public int brushSize = 5;
     public Color brushColor = Color.black;
     public Color resetColor = Color.white;
 
+    public Transform cursorIndicator;
+
     private void Awake()
     {
+        canvas = GetComponentInParent<Canvas>();
         rawImage = GetComponent<RawImage>();
     }
 
@@ -40,6 +47,8 @@ public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler
     
         generatedTexture.SetPixels(colorMap);
         generatedTexture.Apply();
+        
+        SetBrushColor(0);
     }
 
     public void SetTexture(Texture2D texture)
@@ -50,12 +59,21 @@ public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler
         generatedTexture.SetPixels(colorMap);
         generatedTexture.Apply();
     }
+    
+    public void SetBrushColor(int colorID)
+    {
+        var color = colorTable.GetItem(colorID);
+        brushColor = color;
+    }
 
     public void OnDraw(Vector2 position, bool erase)
     {
-        var corner = new Vector2(rt.position.x - rt.pivot.x * rt.rect.size.x, rt.position.y - rt.pivot.y * rt.rect.size.y);
+        var corner = (Vector2)rt.position;
         var pointerPosition = position;
-        var localPos = pointerPosition - corner;
+        Debug.Log($"{pointerPosition} {corner}");
+        var scale = canvas.transform.lossyScale;
+        var v = (pointerPosition - corner);
+        var localPos = new Vector2(v.x / scale.x, v.y / scale.y);
 
         if (localPos.x < 0 || localPos.x > size.x || localPos.y < 0 || localPos.y > size.y)
         {
@@ -136,6 +154,42 @@ public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler
             OnDraw(point,erase);
         }
         prevPosition = pointerPosition;
+    }
+
+    private void Update()
+    {
+        if(Input.mouseScrollDelta.y > 0)
+        {
+            brushSize = Math.Min(brushSize + 1, 8);
+            UpdateBrushSize();
+        }
+        else if(Input.mouseScrollDelta.y < 0)
+        {
+            brushSize = Math.Max(brushSize - 1, 1);
+            UpdateBrushSize();
+        }
+    }
+
+    private void UpdateBrushSize()
+    {
+        var cursorRT = cursorIndicator.transform as RectTransform;
+        cursorRT.sizeDelta = new Vector2(brushSize*2, brushSize*2);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        UpdateBrushSize();
+        cursorIndicator.gameObject.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        cursorIndicator.gameObject.SetActive(false);
+    }
+
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        cursorIndicator.position = eventData.position;
     }
 }
 
