@@ -62,14 +62,15 @@ namespace PartsGen
 
             return generatedFaces;
         }
-        
+
+        private const int PartSize = 100;
         long GetFaceHashCode()
         {
             long hash = 0;
             hash += irisColorID;
             foreach (var (partsType,id) in generatedIDs)
             {
-                hash += (long)Mathf.Pow(100, (int)partsType) * id;
+                hash += (long)Math.Pow(PartSize, (int)partsType) * id;
             }
             
             return hash;
@@ -90,13 +91,15 @@ namespace PartsGen
 
         public void DrawFace(long hash)
         {
-            var irisColor = (int)(hash % 100);
-            hash /= 100;
+            ClearFace();
+            
+            var irisColor = (int)(hash % PartSize);
+            hash /= PartSize;
 
             for (int partsType = 1; partsType <= 7; partsType++)
             {
-                var id = (int)(hash % 100);
-                hash /= 100;
+                var id = (int)(hash % PartSize);
+                hash /= PartSize;
                 
                 var generatedPart = Instantiate(partsInfoDict[(PartsType)partsType].GetItem(id).partPrefab, transform);
                 generatedPart.transform.SetAsLastSibling();
@@ -110,9 +113,8 @@ namespace PartsGen
             }
         }
         
-        public void ClearAll()
+        public void ClearFace()
         {
-            generatedIDs.Clear();
             foreach (var (partsType, generatedPart) in generatedParts)
             {
                 Destroy(generatedPart);
