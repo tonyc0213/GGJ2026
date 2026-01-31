@@ -23,6 +23,7 @@ namespace MaskDrawer
         public Color resetColor = Color.white;
 
         public Transform cursorIndicator;
+        public Image cursorImage;
 
         public AudioSource audioSource;
         
@@ -30,7 +31,8 @@ namespace MaskDrawer
         {
             canvas = GetComponentInParent<Canvas>();
             rawImage = GetComponent<RawImage>();
-        
+            cursorImage = cursorIndicator.GetComponent<Image>();
+            
             rt = transform as RectTransform;
             Assert.IsNotNull(rt, "Missing RectTransform");
             size.x = (int)rt.rect.size.x;
@@ -64,6 +66,7 @@ namespace MaskDrawer
         {
             var color = colorTable.GetItem(colorID);
             brushColor = color;
+            cursorImage.color = color;
         }
 
         public void SetAllowDrawing(bool canDraw)
@@ -219,19 +222,24 @@ namespace MaskDrawer
         public void OnPointerEnter(PointerEventData eventData)
         {
             UpdateBrushSize();
-            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
             cursorIndicator.gameObject.SetActive(true);
+            Cursor.visible = false;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             cursorIndicator.gameObject.SetActive(false);
+            Cursor.visible = true;
         }
 
         public void OnPointerMove(PointerEventData eventData)
         {
             cursorIndicator.position = eventData.position;
+        }
+
+        private void OnDisable()
+        {
+            Cursor.visible = true;
         }
 
         [Header("AudioSettings")] 
