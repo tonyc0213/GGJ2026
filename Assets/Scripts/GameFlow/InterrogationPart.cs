@@ -105,7 +105,6 @@ namespace GameFlow
             faceGenerator.DrawGeneratedFace(currentIndex);
             OnShowNewSuspect.Invoke();
             Delay(transitionInTime, StartDrawTimer);
-            //Delay(transitionInTime + 2, StartDeformFace);
         }
 
         void ShowReappearingSuspect()
@@ -131,27 +130,7 @@ namespace GameFlow
         {
             timer.StartTimer(drawTime);
         }
-
-        public float deformDuration;
-        private void StartDeformFace()
-        {
-            deformStart = deformDuration;
-            deformTime = deformDuration;
-        }
-
-        private float deformStart;
-        private float deformTime;
-        private void Update()
-        {
-            if (deformTime > 0)
-            {
-                var deformFactor = deformTime / deformStart;
-                faceGenerator.SetOpacity(deformFactor);
-
-                deformTime -= Time.deltaTime;
-            }
-        }
-
+        
         public void ForceSuspectDone()
         {
             if (timer.CurrentTime <= 0) return;
