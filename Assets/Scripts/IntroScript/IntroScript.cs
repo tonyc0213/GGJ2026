@@ -7,9 +7,9 @@ public class IntroScript : MonoBehaviour
 {
     [SerializeField]
     private int lauguageId;
-    public string Scene;
-    private GameObject Cn;
-    private GameObject Eng;
+    [SerializeField] public string Scene;
+    [SerializeField] private GameObject Cn;
+    [SerializeField] private GameObject Eng;
 
 
 
