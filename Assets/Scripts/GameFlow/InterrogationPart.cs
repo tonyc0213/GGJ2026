@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Dialogue;
 using MaskDrawer;
 using PartsGen;
 using UnityEngine;
@@ -17,6 +18,8 @@ namespace GameFlow
     public class InterrogationPart : MonoBehaviour
     {
         public DifficultySettingSO difficultySettings;
+        public DialogueIndexSO newSuspectDialogueIndex;
+        public DialogueIndexSO reappearingSuspectDialogueIndex;
         public int startingDifficulty;
 
         public float reappearingSuspectStayTime;
@@ -32,6 +35,7 @@ namespace GameFlow
         public PartsGenSystem faceGenerator;
         public MaskSketchbook maskSketchbook;
         public Timer timer;
+        public DialogueLog dialogueLog;
 
         public UnityEvent OnShowNewSuspect;
         public UnityEvent OnShowReappearingSuspect;
@@ -94,6 +98,7 @@ namespace GameFlow
 
         void ShowNextSuspect()
         {
+            dialogueLog.Clear();
             if (FaceAndDrawings.singleton.drawnFaces.ContainsKey(FaceAndDrawings.singleton.suspectFaceHash[currentIndex]))
             {
                 ShowReappearingSuspect();
@@ -121,6 +126,10 @@ namespace GameFlow
 
             maskSketchbook.Clear();
             OnShowReappearingSuspect.Invoke();
+
+            var dialogue = reappearingSuspectDialogueIndex.itemList[Random.Range(0, newSuspectDialogueIndex.itemList.Count)].item;
+            var delay = Mathf.Min(1, reappearingSuspectStayTime / dialogue.dialogueList.Count);
+            dialogueLog.SetDialogue(dialogue, delay);
             timer.StartTimer(reappearingSuspectStayTime);
         }
 
@@ -135,6 +144,10 @@ namespace GameFlow
             OnStartDrawingSuspect.Invoke();
             maskSketchbook.SetAllowDrawing(true);
             timer.StartTimer(drawTime);
+            
+            var dialogue = newSuspectDialogueIndex.itemList[Random.Range(0, newSuspectDialogueIndex.itemList.Count)].item;
+            var delay = Mathf.Min(1, drawTime / dialogue.dialogueList.Count);
+            dialogueLog.SetDialogue(dialogue,delay);
         }
         
         public void ForceSuspectDone()
