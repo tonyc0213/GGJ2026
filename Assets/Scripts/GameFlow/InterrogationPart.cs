@@ -16,7 +16,7 @@ namespace GameFlow
 
         public PartsGenSystem faceGenerator;
         public MaskDrawer maskDrawer;
-
+        public Timer timer;
 
         public UnityEvent OnShowNewSuspect;
         private int currentIndex;
@@ -27,25 +27,14 @@ namespace GameFlow
             ShowSuspect();
         }
 
-        private void Update()
-        {
-            if (timer <= 0)
-            {
-                return;
-            }
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                OnSuspectDone();
-            }
-        }
-
         void Initialize()
         {
             currentIndex = 0;
             FaceAndDrawings.singleton.suspectFaceHash = faceGenerator.GenerateFaces(suspectCount);
             FaceAndDrawings.singleton.realCulpritIndex = Random.Range(0, FaceAndDrawings.singleton.suspectFaceHash.Count);
             maskDrawer.Clear();
+
+            timer.OnTimesUp += OnSuspectDone;
         }
 
         void ShowSuspect()
@@ -56,16 +45,16 @@ namespace GameFlow
             StartTimer();
         }
 
-        private float timer;
+
         private void StartTimer()
         {
-            timer = drawTime;
+            timer.StartTimer(drawTime);
         }
 
         public void ForceSuspectDone()
         {
-            if (timer <= 0) return;
-            timer = -1;
+            if (timer.CurrentTime <= 0) return;
+            timer.StopTimer();
             OnSuspectDone();
         }
 
