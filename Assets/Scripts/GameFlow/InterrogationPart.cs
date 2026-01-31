@@ -24,6 +24,7 @@ namespace GameFlow
         private int suspectCount;
         private float drawTime;
         private int reappearingSuspectsCount;
+        private int irisColorCount;
         
         public float transitionInTime;
         public float transitionOutTime;
@@ -56,16 +57,18 @@ namespace GameFlow
             suspectCount = difficultySetting.suspectCount;
             drawTime = difficultySetting.drawTime;
             reappearingSuspectsCount = difficultySetting.reappearingSuspectCounts;
+            irisColorCount = difficultySetting.irisColorCount;
             
             currentIndex = 0;
 
+            var colors = faceGenerator.GetRandomIrisColors(irisColorCount);
             if (reappearingSuspectsCount > FaceAndDrawings.singleton.drawnFaces.Count)
             {
-                FaceAndDrawings.singleton.suspectFaceHash = faceGenerator.GenerateFaces(suspectCount);
+                FaceAndDrawings.singleton.suspectFaceHash = faceGenerator.GenerateFaces(suspectCount, colors);
             }
             else
             {
-                var list = faceGenerator.GenerateFaces(suspectCount - reappearingSuspectsCount);
+                var list = faceGenerator.GenerateFaces(suspectCount - reappearingSuspectsCount, colors);
 
                 var drawnSuspectIds = FaceAndDrawings.singleton.drawnFaces.Keys.ToList();
                 for (int i = 0; i < reappearingSuspectsCount; i++)

@@ -40,12 +40,31 @@ namespace PartsGen
             partsInfoDict = partsInfos.ToDictionary(x => x.partsType, x => x.partsIndex);
         }
 
-        public List<long> GenerateFaces(int count)
+        public List<Color> GetRandomIrisColors(int count)
+        {
+            var list = new List<Color>();
+            for (int i = 0; i < count; i++)
+            {
+                var rndIndex = Random.Range(0, IrisColorTable.itemList.Count);
+                var color = IrisColorTable.itemList[rndIndex];
+                if (list.Contains(color.item))
+                {
+                    i--;
+                    continue;
+                }
+                
+                list.Add(color.item);
+            }
+
+            return list;
+        }
+
+        public List<long> GenerateFaces(int count, List<Color> rndColors)
         {
             generatedFaces.Clear();
             for (int i = 0; i < count; i++)
             {
-                var rndIndex = Random.Range(0, IrisColorTable.itemList.Count);
+                var rndIndex = Random.Range(0, rndColors.Count);
                 irisColorID = IrisColorTable.itemList[rndIndex].key;
                 for (int i1 = 1; i1 <= 7; i1++)
                 {
