@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 namespace Utils
 {
-    public static class SaveLoadUtils
+    public static class CodeUtils
     {
         public static void SaveTexture2D(Texture2D texture2D, string name)
         {
@@ -39,6 +40,15 @@ namespace Utils
         static string GetTextureFullPath(string name)
         {
             return Path.Combine(GetTextureFolderPath(), name) + ".png";
+        }
+
+        public static void ShuffleList<T>(this List<T> list)
+        {
+            for (var i = 0; i < list.Count; i++)
+            {
+                var rnd = UnityEngine.Random.Range(0, list.Count);
+                (list[i], list[rnd]) = (list[rnd], list[i]);
+            }
         }
     }
 }

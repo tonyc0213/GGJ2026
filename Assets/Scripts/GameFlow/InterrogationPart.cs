@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using PartsGen;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -71,6 +72,7 @@ namespace GameFlow
         void OnSuspectDone()
         {
             FaceAndDrawings.singleton.drawnFaces.Add(FaceAndDrawings.singleton.suspectFaceHash[currentIndex], maskDrawer.ExportTexture());
+            maskDrawer.Clear();
             currentIndex++;
 
             if (currentIndex == suspectCount)
@@ -85,6 +87,7 @@ namespace GameFlow
 
         private void MoveToNextScene()
         {
+            SceneManager.LoadScene("Scenes/Identification", LoadSceneMode.Single);
         }
     }
 }

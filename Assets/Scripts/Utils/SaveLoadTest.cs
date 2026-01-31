@@ -8,12 +8,12 @@ namespace Utils
 
         public void SaveTexture()
         {
-            SaveLoadUtils.SaveTexture2D(maskDrawer.generatedTexture,"test");
+            CodeUtils.SaveTexture2D(maskDrawer.generatedTexture,"test");
         }
 
         public void LoadTexture()
         {
-            var texture = SaveLoadUtils.LoadTexture2D("test");
+            var texture = CodeUtils.LoadTexture2D("test");
             if (texture != null)
             {
                 maskDrawer.SetTexture(texture);
