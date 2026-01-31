@@ -115,7 +115,12 @@ public class MaskDrawer : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
 
     void DrawPoint(int x, int y, Color color)
     {
-        colorMap[y * size.x + x] = color;
+        var index = y * size.x + x;
+        if(index < 0 || index > colorMap.Length)
+        {
+            return;
+        }
+        colorMap[index] = color;
     }
 
     void ResetColorMap()

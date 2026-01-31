@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using PartsGen;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -15,6 +16,8 @@ namespace GameFlow
         public PartsGenSystem faceGenerator;
         public MaskDrawer maskDrawer;
 
+
+        public UnityEvent OnShowNewSuspect;
         private int currentIndex;
         
         private void Start()
@@ -48,6 +51,7 @@ namespace GameFlow
         {
             Debug.Log($"Showing suspect {currentIndex}");
             faceGenerator.DrawGeneratedFace(currentIndex);
+            OnShowNewSuspect.Invoke();
             StartTimer();
         }
 
