@@ -4,10 +4,29 @@ using UnityEngine;
 
 public class IntroScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private int lauguageId;
+    
+        void Start()
     {
-        
+        lauguageId = PlayerPrefs.GetInt("language");
+        if(lauguageId == 1)
+        {
+
+
+
+        }
+        else
+        {
+
+
+
+        }
+
+
+
+
+
     }
 
     // Update is called once per frame

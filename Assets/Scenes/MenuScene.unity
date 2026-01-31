@@ -2269,7 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486baba20636e044e87a0f513a8fcdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartGameScene: DrawingTest
+  StartGameScene: IntroScene
   languageId: 1
   engStartBtn: {fileID: 1052089093}
   canStartBtn: {fileID: 209936677}
