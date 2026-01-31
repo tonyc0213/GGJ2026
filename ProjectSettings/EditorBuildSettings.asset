@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: e453a8428cc83a248b74656b68635bbe
   - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
     path: Assets/Scenes/Interrogation.unity
     guid: fdb7c5af6f1d152419e092464d6baae4
   - enabled: 1
     path: Assets/Scenes/Identification.unity
     guid: 90187284a24c0e146a43c5f22c4dbf7f
-  - enabled: 1
-    path: Assets/Scenes/IntroScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

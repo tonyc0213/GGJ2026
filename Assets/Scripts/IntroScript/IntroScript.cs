@@ -34,8 +34,8 @@ public class IntroScript : MonoBehaviour
         if (Input.anyKey)
         {
             //gameObject.SetActive(false);
-            SceneManager.LoadScene("Scene");
-            
+            SceneManager.LoadScene(Scene);
+           
         }
     }
 }
