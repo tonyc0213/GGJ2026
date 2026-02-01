@@ -42,7 +42,7 @@ MonoBehaviour:
       - ...
       - "\u5514\u4FC2\u6211\u554A"
       - "\u660E\u65E2"
-      - "\u6211\u767C\u8A93!"
+      - "\u6211\u767C\u8A93\uFF01"
       - "\u767C\u8A93\u6709\u7528\uFF0C\u5481\u5514\u4F7F\u6211\u5566"
   - key: 2
     item:
@@ -53,7 +53,7 @@ MonoBehaviour:
       dialogueListCn:
       - "\u6211\u5730\u55BA\u73FE\u5834\u6435\u5230\u4F60\u65E2DNA"
       - ...
-      - "\u8B1B\u5622\u5566!"
+      - "\u8B1B\u5622\u5566\uFF01"
   - key: 3
     item:
       dialogueListEng:
@@ -61,8 +61,8 @@ MonoBehaviour:
       - I want a lawyer.
       - ...
       dialogueListCn:
-      - "\u6240\u4EE5...\u4F60\u5C0B\u665A\u53BB\u5497\u908A?"
-      - "\u6211\u8981\u6435\u5F8B\u5E2B!"
+      - "\u6240\u4EE5...\u4F60\u5C0B\u665A\u53BB\u5497\u908A\uFF1F"
+      - "\u6211\u8981\u6435\u5F8B\u5E2B\uFF01"
       - ...
   - key: 4
     item:
@@ -70,5 +70,5 @@ MonoBehaviour:
       - What's you name?
       - I am the murderer. HAHAHA
       dialogueListCn:
-      - "\u4F60\u53EB\u54A9\u540D?"
-      - "\u6211\u5C31\u4FC2\u5147\u624B. \u54C8\u54C8\u54C8\u54C8\u54C8"
+      - "\u4F60\u53EB\u54A9\u540D\uFF1F"
+      - "\u6211\u5C31\u4FC2\u72AF\u4EBA\u3002\u54C8\u54C8\u54C8\u54C8\u54C8"
