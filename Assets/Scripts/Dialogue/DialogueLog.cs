@@ -46,7 +46,7 @@ namespace Dialogue
 
         void SpawnNextDialogue()
         {
-            var text = myDialogues.dialogueListEng[currentIndex];
+            var text = myDialogues.GetDialogueList()[currentIndex];
             var prefab = currentIndex % 2 == 0 ? detectiveDialoguePrefab : suspectDialoguePrefab;
 
             var dialogueItem = Instantiate(prefab, layoutRoot);
@@ -55,7 +55,7 @@ namespace Dialogue
             spawnedItems.Add(dialogueItem);
 
             currentIndex++;
-            if (currentIndex < myDialogues.dialogueListEng.Count)
+            if (currentIndex < myDialogues.GetDialogueList().Count)
             {
                 timer = delay;
             }
