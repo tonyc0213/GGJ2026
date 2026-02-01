@@ -148,7 +148,7 @@ namespace GameFlow
             timer.StartTimer(drawTime);
             
             var dialogue = newSuspectDialogueIndex.itemList[Random.Range(0, newSuspectDialogueIndex.itemList.Count)].item;
-            var delay = Mathf.Min(1, drawTime / dialogue.dialogueList.Count);
+            var delay = Mathf.Min(1, drawTime / dialogue.dialogueListEng.Count);
             dialogueLog.SetDialogue(dialogue,delay);
         }
 
@@ -157,7 +157,7 @@ namespace GameFlow
             timer.StartTimer(reappearingSuspectStayTime);
             
             var dialogue = reappearingSuspectDialogueIndex.itemList[Random.Range(0, newSuspectDialogueIndex.itemList.Count)].item;
-            var delay = Mathf.Min(1, reappearingSuspectStayTime / dialogue.dialogueList.Count);
+            var delay = Mathf.Min(1, reappearingSuspectStayTime / dialogue.dialogueListEng.Count);
             dialogueLog.SetDialogue(dialogue, delay);
         }
         
