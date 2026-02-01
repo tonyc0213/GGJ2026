@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameFlow;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.Serialization;
 
 public class SceneManagerScript : MonoBehaviour
 {
@@ -34,6 +36,7 @@ public class SceneManagerScript : MonoBehaviour
     public AudioSource sfx;
     public GameObject bgm;
 
+    public bool resetDifficultyOnEnter;
 
     private void Start()
     {
@@ -46,7 +49,7 @@ public class SceneManagerScript : MonoBehaviour
         ToggleBGM(bgmSound.isOn);
         ToggleSFX(sfxSound.isOn);
 
-
+        if(resetDifficultyOnEnter) FaceAndDrawings.singleton.Reset();
     }
 
 
@@ -83,8 +86,8 @@ public class SceneManagerScript : MonoBehaviour
         cnTitle.SetActive(true);
         bgmSoundText.font = cnFont;
         sfxSoundText.font = cnFont;
-        bgmSoundText.text = ("­µ¼Ö");
-        sfxSoundText.text = ("­µ®Ä");
+        bgmSoundText.text = ("éŸ³æ¨‚");
+        sfxSoundText.text = ("éŸ³æ•ˆ");
 
     }
 

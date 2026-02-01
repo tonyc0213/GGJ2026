@@ -34,6 +34,6 @@ MonoBehaviour:
   - key: 2
     item:
       dialogueList:
-      - You again?
+      - Weren't you here just yesterday?
       - Good to see some familiar faces.
       - ...
