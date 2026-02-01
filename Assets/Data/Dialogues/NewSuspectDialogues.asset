@@ -31,3 +31,15 @@ MonoBehaviour:
       - It wasn't me.
       - Right.
       - I swear.
+  - key: 2
+    item:
+      dialogueList:
+      - We found your DNA at the crime scene
+      - ...
+      - Now talk!
+  - key: 3
+    item:
+      dialogueList:
+      - So... Where were you last night.
+      - I want a lawyer.
+      - ...

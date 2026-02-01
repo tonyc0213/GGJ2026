@@ -11,9 +11,13 @@ namespace GameFlow
         public List<long> suspectFaceHash;
         public Dictionary<long, Texture2D> drawnFaces = new Dictionary<long, Texture2D>();
         public int realCulpritIndex;
-        
-        public List<long> reappearingSuspects = new List<long>();
 
         public int difficultyIncrease = 0;
+
+        public void Reset()
+        {
+            drawnFaces.Clear();
+            difficultyIncrease = 0;
+        }
     }
 }
