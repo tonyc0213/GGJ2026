@@ -1719,7 +1719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c2cadeaef8ca19b49802515ef906dc50, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f6edb150ebe70ca4abf62ad2094b6caf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2277,6 +2277,7 @@ MonoBehaviour:
   cnFont: {fileID: 12800000, guid: 037357acf2333264b8ca624aa91c4237, type: 3}
   sfx: {fileID: 0}
   bgm: {fileID: 482454488}
+  resetDifficultyOnEnter: 0
 --- !u!1 &1145150143
 GameObject:
   m_ObjectHideFlags: 0
