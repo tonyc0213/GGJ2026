@@ -105,7 +105,8 @@ namespace MaskDrawer
     
             DrawBrush((int)localPos.x, (int)localPos.y, erase ? resetColor : brushColor);
     
-            generatedTexture.SetPixels(colorMap);
+            //moved to set pixel when draw point, this too slow
+            //generatedTexture.SetPixels(colorMap);
             generatedTexture.Apply();
         }
 
@@ -139,6 +140,7 @@ namespace MaskDrawer
                 return;
             }
             colorMap[index] = color;
+            generatedTexture.SetPixel(x,y,color);
         }
 
         void ResetColorMap()
@@ -217,8 +219,7 @@ namespace MaskDrawer
             var cursorRT = cursorIndicator.transform as RectTransform;
             cursorRT.sizeDelta = new Vector2(brushSize*2, brushSize*2);
         }
-
-        public Texture2D cursorTexture;
+        
         public void OnPointerEnter(PointerEventData eventData)
         {
             UpdateBrushSize();
