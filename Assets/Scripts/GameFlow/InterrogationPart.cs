@@ -31,6 +31,7 @@ namespace GameFlow
         
         public float transitionInTime;
         public float transitionOutTime;
+        public float stayAfterDrawTime;
 
         public PartsGenSystem faceGenerator;
         public MaskSketchbook maskSketchbook;
@@ -170,13 +171,25 @@ namespace GameFlow
         void OnSuspectDone()
         {
             var faceHash = FaceAndDrawings.singleton.suspectFaceHash[currentIndex];
-            var reappearing = FaceAndDrawings.singleton.drawnFaces.TryAdd(faceHash, maskSketchbook.ExportTexture());
+            var reappearing = !FaceAndDrawings.singleton.drawnFaces.TryAdd(faceHash, maskSketchbook.ExportTexture());
             
             SetSuspectMask(faceHash);
             maskSketchbook.Clear();
             maskSketchbook.SetAllowDrawing(false);
             currentIndex++;
 
+            if (!reappearing)
+            {
+                Delay(stayAfterDrawTime, SuspectLeave);
+            }
+            else
+            {
+                SuspectLeave();
+            }
+        }
+
+        void SuspectLeave()
+        {
             OnSuspectLeave.Invoke();
             Delay(transitionOutTime,CheckNextSuspect);
         }
