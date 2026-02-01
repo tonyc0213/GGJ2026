@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utils;
+using UnityEngine.Audio;
 
 namespace GameFlow
 {
@@ -33,6 +34,10 @@ namespace GameFlow
 
         public UnityEvent OnCorrectAnswer;
         public UnityEvent OnIncorrectAnswer;
+
+        public AudioSource correctMusic;
+        public AudioSource wrongMusic;
+
 
         private void Start()
         {
@@ -87,12 +92,14 @@ namespace GameFlow
                 FaceAndDrawings.singleton.difficultyIncrease++;
                 answerText.SetText("Correct Answer!");
                 restartButtonText.SetText("Continue");
+                correctMusic.Play();
                 OnCorrectAnswer.Invoke();
             }
             else
             {
                 answerText.SetText("Wrong Answer");
                 restartButtonText.SetText("Restart");
+                wrongMusic.Play();
                 OnIncorrectAnswer.Invoke();
             }
             answerUI.SetActive(true);
