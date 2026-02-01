@@ -993,7 +993,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7993332410556538272, guid: 71c56576efa01d64595ca9d3e790332d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5782f52baa1c8144fad0b4cf2f516a96, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b1f7de2383b31814f9331d0b980f9f63, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1001,7 +1001,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 102
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2228,6 +2228,7 @@ GameObject:
   - component: {fileID: 1142257144}
   - component: {fileID: 1142257145}
   - component: {fileID: 1142257146}
+  - component: {fileID: 1142257147}
   m_Layer: 0
   m_Name: SceneManagment
   m_TagString: Untagged
@@ -2374,6 +2375,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1142257147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142257142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f71e025d34e9f84c928618b546d26f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 71c56576efa01d64595ca9d3e790332d, type: 2}
+  bgmSound: {fileID: 1145150145}
+  sfxSound: {fileID: 2142682695}
+  bgmSoundText: {fileID: 393607336}
+  sfxSoundText: {fileID: 691762480}
 --- !u!1 &1145150143
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,7 +3236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -111.26, y: -155.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684229498
@@ -3387,7 +3405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1600, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1908565050
