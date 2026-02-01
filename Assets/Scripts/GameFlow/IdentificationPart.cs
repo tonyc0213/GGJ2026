@@ -27,9 +27,13 @@ namespace GameFlow
         public List<PartsGenSystem> answerUIFaces;
 
         public GameObject answerUI;
-        public TextMeshProUGUI answerText;
+        public TextMeshProUGUI answerTextEn;
+        public TextMeshProUGUI answerTextCn;
+        public TextMeshProUGUI restartButtonTextEn;
+        public TextMeshProUGUI restartButtonTextCn;
+        public TextMeshProUGUI sueDialogEn;
+        public TextMeshProUGUI sueDialogCn;
         public Button restartButton;
-        public TextMeshProUGUI restartButtonText;
         public Button backToMainMenuButton;
 
         public UnityEvent OnCorrectAnswer;
@@ -87,18 +91,43 @@ namespace GameFlow
                 partsGenSystem.DrawFace(suspectHash);
             }
             
+            var langId=  PlayerPrefs.GetInt("language");
+            if (langId == 2)
+            {
+                answerTextEn.gameObject.SetActive(false);
+                restartButtonTextEn.gameObject.SetActive(false);
+                sueDialogEn.gameObject.SetActive(false);
+                answerTextCn.gameObject.SetActive(true);
+                restartButtonTextCn.gameObject.SetActive(true);
+                sueDialogCn.gameObject.SetActive(true);
+            }
+            else
+            {
+                answerTextEn.gameObject.SetActive(true);
+                restartButtonTextEn.gameObject.SetActive(true);
+                sueDialogEn.gameObject.SetActive(true);
+                answerTextCn.gameObject.SetActive(false);
+                restartButtonTextCn.gameObject.SetActive(false);
+                sueDialogCn.gameObject.SetActive(false);
+            }
+            
             if (suspectHash == FaceAndDrawings.singleton.suspectFaceHash[FaceAndDrawings.singleton.realCulpritIndex])
             {
                 FaceAndDrawings.singleton.difficultyIncrease++;
-                answerText.SetText("Correct Answer!");
-                restartButtonText.SetText("Continue");
+                answerTextEn.SetText("Correct Answer!");
+                answerTextCn.SetText("正確！");
+                restartButtonTextEn.SetText("Continue");
+                restartButtonTextCn.SetText("繼續");
                 correctMusic.Play();
                 OnCorrectAnswer.Invoke();
             }
             else
             {
-                answerText.SetText("Wrong Answer");
-                restartButtonText.SetText("Restart");
+                answerTextEn.SetText("Wrong Answer");
+                answerTextCn.SetText("錯誤");
+                restartButtonTextEn.SetText("Restart");
+                restartButtonTextCn.SetText( "再來");
+                
                 wrongMusic.Play();
                 OnIncorrectAnswer.Invoke();
             }
