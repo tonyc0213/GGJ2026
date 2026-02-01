@@ -177,7 +177,7 @@ namespace GameFlow
             maskSketchbook.Clear();
             maskSketchbook.SetAllowDrawing(false);
             currentIndex++;
-
+            
             if (!reappearing)
             {
                 Delay(stayAfterDrawTime, SuspectLeave);
@@ -190,6 +190,7 @@ namespace GameFlow
 
         void SuspectLeave()
         {
+            dialogueLog.Clear();
             OnSuspectLeave.Invoke();
             Delay(transitionOutTime,CheckNextSuspect);
         }

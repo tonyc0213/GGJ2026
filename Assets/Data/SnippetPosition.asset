@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58e65ee36c7647b989ee39f82d913fdf, type: 3}
-  m_Name: SnippetPositionSO
+  m_Name: SnippetPosition
   m_EditorClassIdentifier: 
   defaultItem:
     key: 0

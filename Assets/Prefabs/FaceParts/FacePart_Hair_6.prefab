@@ -11,10 +11,22 @@ PrefabInstance:
     - target: {fileID: 3768776930768028887, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: abf59efc6c7c5b24e848342eb88b54ac, type: 3}
+      objectReference: {fileID: 21300000, guid: 23891125636f7414481328de03b8711e, type: 3}
+    - target: {fileID: 3768776930768028887, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768776930768028887, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768776930768028887, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4811321
+      objectReference: {fileID: 0}
     - target: {fileID: 5714803341776936768, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
       propertyPath: m_Name
-      value: FacePart_Hair_1
+      value: FacePart_Hair_6
       objectReference: {fileID: 0}
     - target: {fileID: 7813683454625142223, guid: dd7cc67d6afa0314aac66bd470eed523, type: 3}
       propertyPath: m_Pivot.x
