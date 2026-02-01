@@ -15,25 +15,40 @@ MonoBehaviour:
   defaultItem:
     key: -1
     item:
-      dialogueList: []
+      dialogueListEng: []
+      dialogueListCn: []
   itemList:
   - key: 0
     item:
-      dialogueList:
+      dialogueListEng:
       - You again?
       - ...
       - What have you done this time?
       - What do you mean this time?
+      dialogueListCn:
+      - "\u53C8\u4FC2\u4F60\u554A\u9673\u751F?"
+      - ...
+      - "\u4F60\u4ECA\u6B21\u8870\u54A9?"
+      - "\u4ECA\u6B21\u4FC2\u54A9\u610F\u601D?"
   - key: 1
     item:
-      dialogueList:
+      dialogueListEng:
       - You again?
       - You again?
+      - ...
+      - ...
+      dialogueListCn:
+      - "\u53C8\u4FC2\u4F60?"
+      - "\u53C8\u4FC2\u4F60?"
       - ...
       - ...
   - key: 2
     item:
-      dialogueList:
+      dialogueListEng:
       - Weren't you here just yesterday?
       - Good to see some familiar faces.
+      - ...
+      dialogueListCn:
+      - "\u6211\u5730\u5514\u4FC2\u5C0B\u65E5\u5148\u898B\u904E?"
+      - "\u898B\u5230\u719F\u6089\u65E2\u9762\u5B54\u771F\u4FC2\u5B89\u5FC3"
       - ...

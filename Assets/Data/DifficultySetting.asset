@@ -16,50 +16,43 @@ MonoBehaviour:
     key: 0
     item:
       suspectCount: 3
-      drawTime: 10
+      drawTime: 15
       reappearingSuspectCounts: 0
-      irisColorCount: 2
+      irisColorCount: 3
       snippetListId: 0
   itemList:
   - key: 1
     item:
       suspectCount: 3
-      drawTime: 6
+      drawTime: 13
       reappearingSuspectCounts: 0
       irisColorCount: 2
       snippetListId: 0
   - key: 2
     item:
       suspectCount: 4
-      drawTime: 5
+      drawTime: 11
       reappearingSuspectCounts: 1
       irisColorCount: 2
-      snippetListId: 1
+      snippetListId: 0
   - key: 3
     item:
-      suspectCount: 5
-      drawTime: 4
+      suspectCount: 4
+      drawTime: 9
       reappearingSuspectCounts: 1
-      irisColorCount: 2
-      snippetListId: 0
+      irisColorCount: 1
+      snippetListId: 1
   - key: 4
     item:
-      suspectCount: 8
-      drawTime: 3
+      suspectCount: 5
+      drawTime: 7
       reappearingSuspectCounts: 1
-      irisColorCount: 2
-      snippetListId: 0
+      irisColorCount: 1
+      snippetListId: 1
   - key: 5
     item:
-      suspectCount: 10
-      drawTime: 2
+      suspectCount: 5
+      drawTime: 5
       reappearingSuspectCounts: 2
-      irisColorCount: 2
-      snippetListId: 1
-  - key: 6
-    item:
-      suspectCount: 12
-      drawTime: 1
-      reappearingSuspectCounts: 2
-      irisColorCount: 2
+      irisColorCount: 1
       snippetListId: 1
