@@ -28,6 +28,7 @@ namespace GameFlow
         public GameObject answerUI;
         public TextMeshProUGUI answerText;
         public Button restartButton;
+        public TextMeshProUGUI restartButtonText;
         public Button backToMainMenuButton;
 
         public UnityEvent OnCorrectAnswer;
@@ -84,11 +85,13 @@ namespace GameFlow
             {
                 FaceAndDrawings.singleton.difficultyIncrease++;
                 answerText.SetText("Correct Answer!");
+                restartButtonText.SetText("Continue");
                 OnCorrectAnswer.Invoke();
             }
             else
             {
                 answerText.SetText("Wrong Answer");
+                restartButtonText.SetText("Restart");
                 OnIncorrectAnswer.Invoke();
             }
             answerUI.SetActive(true);

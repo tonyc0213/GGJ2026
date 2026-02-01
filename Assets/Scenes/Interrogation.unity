@@ -2478,6 +2478,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2021982545}
     m_Modifications:
+    - target: {fileID: 1672606528136000144, guid: 2f9d1bdbe07b7b749b22dd4baa1dd169, type: 3}
+      propertyPath: m_Padding.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672606528136000144, guid: 2f9d1bdbe07b7b749b22dd4baa1dd169, type: 3}
+      propertyPath: m_Padding.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672606528136000144, guid: 2f9d1bdbe07b7b749b22dd4baa1dd169, type: 3}
+      propertyPath: m_Padding.z
+      value: -100
+      objectReference: {fileID: 0}
     - target: {fileID: 2219181892461857066, guid: 2f9d1bdbe07b7b749b22dd4baa1dd169, type: 3}
       propertyPath: m_Name
       value: DialogueLog
@@ -2581,6 +2593,14 @@ PrefabInstance:
     - target: {fileID: 8256632393948058515, guid: 2f9d1bdbe07b7b749b22dd4baa1dd169, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042552066107556544, guid: 2f9d1bdbe07b7b749b22dd4baa1dd169, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190755547751248082, guid: 2f9d1bdbe07b7b749b22dd4baa1dd169, type: 3}
+      propertyPath: m_Spacing
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
