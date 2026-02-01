@@ -37,11 +37,10 @@ namespace GameFlow
         public Timer timer;
         public DialogueLog dialogueLog;
 
+        public UnityEvent OnStart;
         public UnityEvent OnShowNewSuspect;
-        public UnityEvent OnShowReappearingSuspect;
         public UnityEvent OnStartDrawingSuspect;
-        public UnityEvent OnNewSuspectLeave;
-        public UnityEvent OnReappearingSuspectLeave;
+        public UnityEvent OnSuspectLeave;
         private int currentIndex;
         
         public GameObject suspectMask;
@@ -107,30 +106,32 @@ namespace GameFlow
             {
                 ShowNewSuspect();
             }
+
+            if (currentIndex == 0)
+            {
+                OnStart.Invoke();
+            }
+            OnShowNewSuspect.Invoke();
         }
 
         void ShowNewSuspect()
         {
+            var transitionTime = currentIndex == 0 ? transitionInTime + transitionOutTime : transitionInTime;
+            
             suspectMask.SetActive(false);
             faceGenerator.DrawGeneratedFace(currentIndex);
-            OnShowNewSuspect.Invoke();
-            Delay(transitionInTime, StartDrawTimer);
+            Delay(transitionTime, StartDrawTimer);
         }
 
         void ShowReappearingSuspect()
         {
             faceGenerator.ClearFace();
-            
             var faceHash = FaceAndDrawings.singleton.suspectFaceHash[currentIndex];
             SetSuspectMask(faceHash);
-
             maskSketchbook.Clear();
-            OnShowReappearingSuspect.Invoke();
 
-            var dialogue = reappearingSuspectDialogueIndex.itemList[Random.Range(0, newSuspectDialogueIndex.itemList.Count)].item;
-            var delay = Mathf.Min(1, reappearingSuspectStayTime / dialogue.dialogueList.Count);
-            dialogueLog.SetDialogue(dialogue, delay);
-            timer.StartTimer(reappearingSuspectStayTime);
+            var transitionTime = currentIndex == 0 ? transitionInTime + transitionOutTime : transitionInTime;
+            Delay(transitionTime, StartShowReappearingSuspect);
         }
 
         private void SetSuspectMask(long hash)
@@ -148,6 +149,15 @@ namespace GameFlow
             var dialogue = newSuspectDialogueIndex.itemList[Random.Range(0, newSuspectDialogueIndex.itemList.Count)].item;
             var delay = Mathf.Min(1, drawTime / dialogue.dialogueList.Count);
             dialogueLog.SetDialogue(dialogue,delay);
+        }
+
+        void StartShowReappearingSuspect()
+        {
+            timer.StartTimer(reappearingSuspectStayTime);
+            
+            var dialogue = reappearingSuspectDialogueIndex.itemList[Random.Range(0, newSuspectDialogueIndex.itemList.Count)].item;
+            var delay = Mathf.Min(1, reappearingSuspectStayTime / dialogue.dialogueList.Count);
+            dialogueLog.SetDialogue(dialogue, delay);
         }
         
         public void ForceSuspectDone()
@@ -167,14 +177,7 @@ namespace GameFlow
             maskSketchbook.SetAllowDrawing(false);
             currentIndex++;
 
-            if (reappearing)
-            {
-                OnReappearingSuspectLeave.Invoke();
-            }
-            else
-            {
-                OnNewSuspectLeave.Invoke();
-            }
+            OnSuspectLeave.Invoke();
             Delay(transitionOutTime,CheckNextSuspect);
         }
 

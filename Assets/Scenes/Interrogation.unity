@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 692001497}
   - component: {fileID: 692001501}
   - component: {fileID: 692001502}
+  - component: {fileID: 692001503}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -747,8 +748,8 @@ MonoBehaviour:
   reappearingSuspectDialogueIndex: {fileID: 11400000, guid: 6862ffe1ce991e34d9e80842eca41d7b, type: 2}
   startingDifficulty: 0
   reappearingSuspectStayTime: 3
-  transitionInTime: 2
-  transitionOutTime: 2
+  transitionInTime: 1
+  transitionOutTime: 7
   faceGenerator: {fileID: 390670714}
   maskSketchbook: {fileID: 1296601291}
   timer: {fileID: 990148916}
@@ -764,12 +765,45 @@ MonoBehaviour:
       m_Calls: []
   OnNewSuspectLeave:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 692001503}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Play
+          m_BoolArgument: 0
+        m_CallState: 2
   OnReappearingSuspectLeave:
     m_PersistentCalls:
       m_Calls: []
   suspectMask: {fileID: 2803622202814813856}
   suspectMaskTexture: {fileID: 4566580881623992340}
+--- !u!95 &692001503
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692001496}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79444db1bfc356548a643d10b6bb3955, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &748495853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,6 +1990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2021982545}
+  - component: {fileID: 2021982546}
   m_Layer: 5
   m_Name: Fixed
   m_TagString: Untagged
@@ -1994,6 +2029,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1600, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &2021982546
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021982544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2066215192
 GameObject:
   m_ObjectHideFlags: 0
