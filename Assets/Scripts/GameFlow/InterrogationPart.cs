@@ -55,7 +55,7 @@ namespace GameFlow
 
         void Initialize()
         {
-            var difficulty = Math.Min(startingDifficulty + FaceAndDrawings.singleton.difficultyIncrease, difficultySettings.itemList.Count);
+            var difficulty = Math.Min(startingDifficulty + FaceAndDrawings.singleton.difficultyIncrease, difficultySettings.itemList.Count - 1);
             var difficultySetting = difficultySettings.GetItem(difficulty);
 
             suspectCount = difficultySetting.suspectCount;

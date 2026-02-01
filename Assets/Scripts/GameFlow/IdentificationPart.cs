@@ -56,7 +56,8 @@ namespace GameFlow
             }
 
             List<Vector3> usedPositions = new List<Vector3>();
-            var difficultySetting = difficultySettings.GetItem(FaceAndDrawings.singleton.difficultyIncrease);
+            var difficulty = Math.Min(FaceAndDrawings.singleton.difficultyIncrease, difficultySettings.itemList.Count - 1);
+            var difficultySetting = difficultySettings.GetItem(difficulty);
             var snippetPositionsList = snippetPositions.GetItem(difficultySetting.snippetListId);
             foreach (var faceGenerator in faceGenerators)
             {
