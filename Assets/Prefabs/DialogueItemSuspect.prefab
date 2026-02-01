@@ -16,6 +16,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 84a969f0ec6dc5b4aa458cf467f7beb5, type: 3}
+    - target: {fileID: 945408333795383706, guid: 4175924c813d28748bdc861f6b95e686, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -85.9793
+      objectReference: {fileID: 0}
+    - target: {fileID: 945408333795383706, guid: 4175924c813d28748bdc861f6b95e686, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -41.9565
+      objectReference: {fileID: 0}
+    - target: {fileID: 945408333795383706, guid: 4175924c813d28748bdc861f6b95e686, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -22.989716
+      objectReference: {fileID: 0}
+    - target: {fileID: 945408333795383706, guid: 4175924c813d28748bdc861f6b95e686, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.956501
+      objectReference: {fileID: 0}
     - target: {fileID: 3874116925717121941, guid: 4175924c813d28748bdc861f6b95e686, type: 3}
       propertyPath: m_Name
       value: DialogueItemSuspect
