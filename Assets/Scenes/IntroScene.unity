@@ -435,8 +435,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1244103945}
   - {fileID: 469270169}
+  - {fileID: 1244103945}
   m_Father: {fileID: 519420032}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1014,8 +1014,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "You're the best detective in history. \r\nYou've solved countless cases
-    and\r\nsent many criminals to prison.\r\nYou've only one flaw...\r\nTou can't
-    remember faces well.\r\nSo please carefully remember every feature of each criminal.\r\nPoint
+    and\r\nsent many criminals to prison.\r\nYou've only got one flaw...\r\nYou can't
+    remember faces well.\r\nCarefully remember every feature of each suspect\r\nPoint
     out the real culprit!\r\nRemember: There is only one truth!!!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e65aaabb2409de144a45a0f23dfd57e1, type: 2}
