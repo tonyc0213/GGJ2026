@@ -21,6 +21,7 @@ MonoBehaviour:
     - {x: 64, y: -353, z: 2}
     - {x: 171, y: 58, z: 2}
     - {x: -61, y: 53, z: 2.6}
+    - {x: -193, y: -250, z: 2}
   itemList:
   - key: 1
     item:
